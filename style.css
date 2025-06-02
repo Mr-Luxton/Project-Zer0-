@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: 'Courier New', monospace;
-  background-color: #0d0d0d;
-  color: #ccc;
+  background-color: #000;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;

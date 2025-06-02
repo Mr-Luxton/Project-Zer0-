@@ -1,43 +1,110 @@
+let hasKey = false;
+let deskUnlocked = false;
+let hasBook = false;
+let loreUnlocked = [];
+let currentPage = 0;
+
 function startGame() {
-  document.getElementById('titleScreen').classList.add('hidden');
-  document.getElementById('settingsScreen').classList.add('hidden');
+  hideAllScreens();
   document.getElementById('room').classList.remove('hidden');
 }
 
 function openSettings() {
-  document.getElementById('titleScreen').classList.add('hidden');
+  hideAllScreens();
   document.getElementById('settingsScreen').classList.remove('hidden');
 }
 
 function backToTitle() {
-  document.getElementById('settingsScreen').classList.add('hidden');
+  hideAllScreens();
   document.getElementById('titleScreen').classList.remove('hidden');
+}
+
+function hideAllScreens() {
+  document.querySelectorAll("#titleScreen, #settingsScreen, #room").forEach(el => {
+    el.classList.add('hidden');
+  });
 }
 
 function inspect(item) {
   let msg = '';
-  let loreBox = document.getElementById('lore');
-  loreBox.classList.add('hidden');
-
   switch(item) {
-    case 'desk':
-      msg = "An old wooden desk. There's a locked drawer.";
+    case 'closet':
+      if (!hasKey) {
+        msg = "Inside the closet, you find a small rusty key.";
+        hasKey = true;
+      } else {
+        msg = "The closet is empty.";
+      }
       break;
+
+    case 'desk':
+      if (!deskUnlocked) {
+        if (hasKey) {
+          msg = "You unlock the desk drawer and find a dusty book.";
+          deskUnlocked = true;
+          hasBook = true;
+          document.getElementById('loreTab').classList.remove('hidden');
+          addLore("You’ve found the ‘Zer0 Log’. Each page details past escapees — and their failures.");
+        } else {
+          msg = "The desk drawer is locked.";
+        }
+      } else {
+        msg = "The desk is open. The book is gone.";
+      }
+      break;
+
     case 'door':
-      msg = "A heavy door with a keypad. You need a 3-digit code.";
-      let code = prompt("Enter code:");
+      let code = prompt("Enter 3-digit code:");
       if (code === "517") {
         msg = "The keypad clicks. The door swings open. You're free… for now.";
       } else {
         msg = "Wrong code. Try again.";
       }
       break;
+
     case 'note':
       msg = "A crumpled note reads: 'Five. One. Seven. The key to freedom lies in the numbers we forget.'";
-      loreBox.textContent = "LORE UNLOCKED: Zer0 was the last test subject... but what were the others?";
-      loreBox.classList.remove('hidden');
+      addLore("The note is one of many left by Subject 4. Most didn't survive the first test.");
       break;
   }
 
   document.getElementById('message').textContent = msg;
+}
+
+// LORE BOOK SYSTEM
+
+function addLore(text) {
+  if (!loreUnlocked.includes(text)) {
+    loreUnlocked.push(text);
+  }
+  updateLorePage();
+}
+
+function toggleLoreBook() {
+  const book = document.getElementById('loreBook');
+  if (book.classList.contains('hidden')) {
+    book.classList.remove('hidden');
+    updateLorePage();
+  } else {
+    book.classList.add('hidden');
+  }
+}
+
+function updateLorePage() {
+  const content = loreUnlocked[currentPage] || "No entries yet.";
+  document.getElementById('loreContent').textContent = content;
+}
+
+function nextPage() {
+  if (currentPage < loreUnlocked.length - 1) {
+    currentPage++;
+    updateLorePage();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    updateLorePage();
+  }
 }

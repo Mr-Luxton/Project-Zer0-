@@ -8,11 +8,21 @@
 </head>
 <body>
   <div id="game">
+
+    <!-- Title Screen -->
     <div id="titleScreen">
       <h1>PROJECT zer0</h1>
-      <button onclick="startGame()">ENTER</button>
+      <button onclick="startGame()">Start</button>
+      <button onclick="openSettings()">Settings</button>
     </div>
 
+    <!-- Settings Screen -->
+    <div id="settingsScreen" class="hidden">
+      <p>Settings menu is in progress.</p>
+      <button onclick="backToTitle()">Back</button>
+    </div>
+
+    <!-- Game Room -->
     <div id="room" class="hidden">
       <p id="message">You wake up in a dark room. The air is cold. You must escape.</p>
       <div id="objects">
@@ -22,8 +32,8 @@
       </div>
       <div id="lore" class="hidden"></div>
     </div>
-  </div>
 
+  </div>
   <script src="game.js"></script>
 </body>
 </html>

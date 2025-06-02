@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Project zer0</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Title Screen -->
-  <div id="titleScreen">
+  <div id="fade-screen"></div>
+
+  <div id="title-screen" class="screen active">
     <h1>Project zer0</h1>
     <button onclick="startGame()">Start</button>
-    <button onclick="openSettings()">Settings</button>
+    <button onclick="showSettings()">Settings</button>
   </div>
 
-  <!-- Settings Screen -->
-  <div id="settingsScreen" class="hidden">
-    <p>Settings: In Progress</p>
-    <button onclick="backToTitle()">Back</button>
+  <div id="settings-screen" class="screen">
+    <p>Settings - In progress</p>
+    <button onclick="goBack()">Back</button>
   </div>
 
-  <!-- Game Room -->
-  <div id="room" class="hidden">
+  <div id="game-screen" class="screen">
+    <div id="ui">
+      <button onclick="toggleTab('lore')">Lore</button>
+      <button onclick="toggleTab('map')">Map</button>
+    </div>
+
     <div id="tabs">
-      <div id="loreTab" class="hidden" onclick="toggleLore()">📖 Lore</div>
-      <div id="mapTab" class="hidden" onclick="toggleMap()">🗺️ Map</div>
+      <div id="lore-tab" class="tab">
+        <h2>Lore</h2>
+        <div id="lore-pages"></div>
+        <button onclick="prevPage()">◀</button>
+        <button onclick="nextPage()">▶</button>
+      </div>
+
+      <div id="map-tab" class="tab">
+        <h2>Map</h2>
+        <p id="map-info">Level: B1<br>Room: Manager’s Office</p>
+        <div id="map-layout">[Map layout will go here]</div>
+      </div>
     </div>
-    <div id="message">You are in the Manager's Office. It's dimly lit.</div>
-    <div id="objects">
-      <button onclick="inspect('closet')">Closet</button>
-      <button onclick="inspect('desk')">Desk</button>
-      <button onclick="inspect('door')">Door</button>
-      <button onclick="inspect('note')">Loose Paper</button>
+
+    <div id="room-container">
+      <div id="room-description">You are in the Manager’s Office.</div>
+      <div id="room-actions"></div>
     </div>
   </div>
 
-  <!-- Lore Book -->
-  <div id="loreBook" class="hidden">
-    <div id="lorePage"></div>
-    <div class="nav">
-      <button onclick="prevLore()">←</button>
-      <button onclick="nextLore()">→</button>
-    </div>
-    <button onclick="toggleLore()">Close</button>
-  </div>
-
-  <!-- Map Viewer -->
-  <div id="mapViewer" class="hidden">
-    <div id="mapContent"></div>
-    <button onclick="toggleMap()">Close Map</button>
-  </div>
-
-  <script src="game.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -10,27 +10,42 @@
   <div id="game">
 
     <!-- Title Screen -->
-    <div id="titleScreen">
+    <div id="titleScreen" class="fade-in">
       <h1>PROJECT zer0</h1>
       <button onclick="startGame()">Start</button>
       <button onclick="openSettings()">Settings</button>
     </div>
 
     <!-- Settings Screen -->
-    <div id="settingsScreen" class="hidden">
+    <div id="settingsScreen" class="hidden fade-in">
       <p>Settings menu is in progress.</p>
       <button onclick="backToTitle()">Back</button>
     </div>
 
     <!-- Game Room -->
-    <div id="room" class="hidden">
+    <div id="room" class="hidden fade-in">
       <p id="message">You wake up in a dark room. The air is cold. You must escape.</p>
       <div id="objects">
+        <button onclick="inspect('closet')">Closet</button>
         <button onclick="inspect('desk')">Desk</button>
         <button onclick="inspect('door')">Door</button>
         <button onclick="inspect('note')">Loose Paper</button>
       </div>
-      <div id="lore" class="hidden"></div>
+    </div>
+
+    <!-- Lore Book Tab -->
+    <div id="loreTab" class="hidden" onclick="toggleLoreBook()">📖 Lore</div>
+
+    <!-- Lore Book Interface -->
+    <div id="loreBook" class="hidden">
+      <div id="bookPage">
+        <p id="loreContent">No entries yet.</p>
+      </div>
+      <div id="bookControls">
+        <button onclick="prevPage()">⟵</button>
+        <button onclick="nextPage()">⟶</button>
+        <button onclick="toggleLoreBook()">Close</button>
+      </div>
     </div>
 
   </div>

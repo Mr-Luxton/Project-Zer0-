@@ -4,51 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project zer0</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="game">
-
-    <!-- Title Screen -->
-    <div id="titleScreen" class="fade-in">
-      <h1>PROJECT zer0</h1>
-      <button onclick="startGame()">Start</button>
-      <button onclick="openSettings()">Settings</button>
-    </div>
-
-    <!-- Settings Screen -->
-    <div id="settingsScreen" class="hidden fade-in">
-      <p>Settings menu is in progress.</p>
-      <button onclick="backToTitle()">Back</button>
-    </div>
-
-    <!-- Game Room -->
-    <div id="room" class="hidden fade-in">
-      <p id="message">You wake up in a dark room. The air is cold. You must escape.</p>
-      <div id="objects">
-        <button onclick="inspect('closet')">Closet</button>
-        <button onclick="inspect('desk')">Desk</button>
-        <button onclick="inspect('door')">Door</button>
-        <button onclick="inspect('note')">Loose Paper</button>
-      </div>
-    </div>
-
-    <!-- Lore Book Tab -->
-    <div id="loreTab" class="hidden" onclick="toggleLoreBook()">📖 Lore</div>
-
-    <!-- Lore Book Interface -->
-    <div id="loreBook" class="hidden">
-      <div id="bookPage">
-        <p id="loreContent">No entries yet.</p>
-      </div>
-      <div id="bookControls">
-        <button onclick="prevPage()">⟵</button>
-        <button onclick="nextPage()">⟶</button>
-        <button onclick="toggleLoreBook()">Close</button>
-      </div>
-    </div>
-
+  <!-- Title Screen -->
+  <div id="titleScreen">
+    <h1>Project zer0</h1>
+    <button onclick="startGame()">Start</button>
+    <button onclick="openSettings()">Settings</button>
   </div>
+
+  <!-- Settings Screen -->
+  <div id="settingsScreen" class="hidden">
+    <p>Settings: In Progress</p>
+    <button onclick="backToTitle()">Back</button>
+  </div>
+
+  <!-- Game Room -->
+  <div id="room" class="hidden">
+    <div id="tabs">
+      <div id="loreTab" class="hidden" onclick="toggleLore()">📖 Lore</div>
+      <div id="mapTab" class="hidden" onclick="toggleMap()">🗺️ Map</div>
+    </div>
+    <div id="message">You are in the Manager's Office. It's dimly lit.</div>
+    <div id="objects">
+      <button onclick="inspect('closet')">Closet</button>
+      <button onclick="inspect('desk')">Desk</button>
+      <button onclick="inspect('door')">Door</button>
+      <button onclick="inspect('note')">Loose Paper</button>
+    </div>
+  </div>
+
+  <!-- Lore Book -->
+  <div id="loreBook" class="hidden">
+    <div id="lorePage"></div>
+    <div class="nav">
+      <button onclick="prevLore()">←</button>
+      <button onclick="nextLore()">→</button>
+    </div>
+    <button onclick="toggleLore()">Close</button>
+  </div>
+
+  <!-- Map Viewer -->
+  <div id="mapViewer" class="hidden">
+    <div id="mapContent"></div>
+    <button onclick="toggleMap()">Close Map</button>
+  </div>
+
   <script src="game.js"></script>
 </body>
 </html>

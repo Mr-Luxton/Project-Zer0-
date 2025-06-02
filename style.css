@@ -1,49 +1,38 @@
 body {
-  margin: 0;
+  background-color: black;
+  color: white;
   font-family: 'Courier New', monospace;
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#game {
   text-align: center;
-  max-width: 600px;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .hidden {
   display: none;
 }
 
-button {
-  background: #1a1a1a;
-  color: #ccc;
-  border: 1px solid #333;
-  padding: 10px 20px;
-  margin: 10px;
+#titleScreen {
+  animation: fadein 2s;
+  padding-top: 20%;
+}
+
+#room {
+  padding: 20px;
+  animation: fadein 2s;
+}
+
+#objects button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
   cursor: pointer;
-  transition: background 0.3s;
+  width: 200px;
 }
 
-button:hover {
-  background: #333;
-}
-
-.fade-in {
-  animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#loreTab {
+#loreTab, #mapTab {
   position: absolute;
   top: 20px;
   right: 0;
@@ -53,6 +42,10 @@ button:hover {
   cursor: pointer;
   color: #fff;
   font-size: 18px;
+}
+
+#mapTab {
+  top: 60px;
 }
 
 #loreBook {
@@ -68,12 +61,33 @@ button:hover {
   z-index: 10;
 }
 
-#bookPage {
-  min-height: 150px;
-  font-style: italic;
-  color: #ccc;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-#bookControls {
-  margin-top: 20px;
+#mapViewer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 500px;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 20px;
+  border: 2px solid #444;
+  z-index: 10;
+  text-align: center;
+}
+
+#mapContent {
+  white-space: pre;
+  font-family: monospace;
+  margin-bottom: 15px;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

@@ -1,6 +1,17 @@
 function startGame() {
   document.getElementById('titleScreen').classList.add('hidden');
+  document.getElementById('settingsScreen').classList.add('hidden');
   document.getElementById('room').classList.remove('hidden');
+}
+
+function openSettings() {
+  document.getElementById('titleScreen').classList.add('hidden');
+  document.getElementById('settingsScreen').classList.remove('hidden');
+}
+
+function backToTitle() {
+  document.getElementById('settingsScreen').classList.add('hidden');
+  document.getElementById('titleScreen').classList.remove('hidden');
 }
 
 function inspect(item) {

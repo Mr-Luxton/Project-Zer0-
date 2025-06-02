@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background-color: #0d0d0d;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#game {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  background: #1a1a1a;
+  color: #ccc;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #333;
+}
+
+#lore {
+  margin-top: 20px;
+  font-style: italic;
+  color: #999;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}

@@ -42,8 +42,8 @@ If you're the kind of person who reads between the lines, opens drawers **twice*
 ## 🗂️ How to Play
 
 1. **Download or clone** this repository.
-2. **Open** `index.html` in your browser.
-3. **Start playing** — headphones recommended.
+2. **Open** `(https://mr-luxton.github.io/Project-Zer0-/)` in your browser.
+3. **Start playing** — headphones recommended. (Sound coming soon.)
 
 Built with lightweight HTML/CSS/JS. No installs, no dependencies.
 
@@ -51,8 +51,8 @@ Built with lightweight HTML/CSS/JS. No installs, no dependencies.
 
 ## ⚒️ Development Notes
 
-- This game is being built as part of a creative coding challenge between AI and humans.
-- Feedback from testers (like you?) will shape its next versions.
+- This game is being built as part of a ongoing project in my free time.
+- Feedback from testers (like you) will shape its next versions.
 - The project is evolving — more levels, lore, and surprises will be added in future updates.
 
 ---

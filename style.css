@@ -1,60 +1,94 @@
+
 body {
-  margin: 0;
   background-color: black;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.screen {
-  display: none;
+  font-family: 'Courier New', monospace;
   text-align: center;
-  padding-top: 20vh;
+  margin: 0;
+  padding: 0;
 }
 
-.screen.active {
-  display: block;
-}
-
-button {
-  background-color: #222;
-  color: white;
-  border: 1px solid white;
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-#fade-screen {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 100;
-  opacity: 1;
-  transition: opacity 2s ease;
-}
-
-#fade-screen.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#ui {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-}
-
-#tabs {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-}
-
-.tab {
+.hidden {
   display: none;
 }
 
-.tab.active {
+#titleScreen {
+  animation: fadein 2s;
+  padding-top: 20%;
+}
+
+#room {
+  padding: 20px;
+  animation: fadein 2s;
+}
+
+#objects button {
   display: block;
+  margin: 10px auto;
+  padding: 10px;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  cursor: pointer;
+  width: 200px;
+}
+
+#loreTab, #mapTab {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+}
+
+#mapTab {
+  top: 60px;
+}
+
+#loreBook {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 500px;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 20px;
+  border: 2px solid #444;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#mapViewer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 500px;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 20px;
+  border: 2px solid #444;
+  z-index: 10;
+  text-align: center;
+}
+
+#mapContent {
+  white-space: pre;
+  font-family: monospace;
+  margin-bottom: 15px;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

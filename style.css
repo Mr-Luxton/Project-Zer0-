@@ -1,54 +1,119 @@
-
+/*----------------------------
+  General Reset & Body
+----------------------------*/
 body {
-  background-color: black;
-  color: white;
-  font-family: 'Courier New', monospace;
-  text-align: center;
   margin: 0;
   padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/*----------------------------
+  Hidden Class
+----------------------------*/
 .hidden {
   display: none;
 }
 
-#titleScreen {
-  animation: fadein 2s;
-  padding-top: 20%;
+/*----------------------------
+  Fade-In Animation
+----------------------------*/
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-#room {
-  padding: 20px;
-  animation: fadein 2s;
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
 }
 
-#objects button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  background: #222;
-  color: white;
-  border: 1px solid #555;
-  cursor: pointer;
-  width: 200px;
+/*----------------------------
+  Title & Settings Screens
+----------------------------*/
+#titleScreen,
+#settingsScreen {
+  text-align: center;
 }
 
-#loreTab, #mapTab {
-  position: absolute;
-  top: 20px;
-  right: 0;
+#titleScreen h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+/*----------------------------
+  Buttons (General)
+----------------------------*/
+button {
   background: #1a1a1a;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
+  color: #ccc;
+  border: 1px solid #444;
+  padding: 10px 20px;
+  margin: 10px;
   cursor: pointer;
-  color: #fff;
-  font-size: 18px;
+  transition: background 0.3s;
+  font-size: 1em;
 }
 
+button:hover {
+  background: #333;
+}
+
+/*----------------------------
+  Main Game Screen
+----------------------------*/
+#gameScreen {
+  width: 80%;
+  max-width: 700px;
+  animation: fadeIn 1.5s;
+  position: relative;
+}
+
+/* Tabs for Lore & Map */
+#tabs {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#loreTab,
 #mapTab {
-  top: 60px;
+  background: #1a1a1a;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+  font-size: 1.2em;
 }
 
+/* Room Container */
+#roomContainer {
+  margin-top: 50px; /* leave space for tabs */
+  text-align: left;
+}
+
+#roomDescription {
+  margin-bottom: 20px;
+  line-height: 1.4;
+  font-size: 1.1em;
+}
+
+#roomObjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/*----------------------------
+  Lore Book Overlay
+----------------------------*/
 #loreBook {
   position: absolute;
   top: 50%;
@@ -60,14 +125,25 @@ body {
   padding: 20px;
   border: 2px solid #444;
   z-index: 10;
+  text-align: center;
 }
 
-.nav {
+#lorePage {
+  min-height: 150px;
+  font-style: italic;
+  color: #ccc;
+}
+
+#loreNav {
+  margin-top: 15px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: center;
+  gap: 20px;
 }
 
+/*----------------------------
+  Map Viewer Overlay
+----------------------------*/
 #mapViewer {
   position: absolute;
   top: 50%;
@@ -83,12 +159,9 @@ body {
 }
 
 #mapContent {
+  text-align: left;
   white-space: pre;
   font-family: monospace;
+  color: #0f0;
   margin-bottom: 15px;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }

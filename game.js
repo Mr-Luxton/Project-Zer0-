@@ -464,3 +464,7 @@ document.getElementById("lorePrevBtn").onclick = prevLore;
 
 // --- On Load: Show Title Screen ---
 backToTitle();
+// --- Main Menu Button Hooks ---
+document.getElementById("startBtn").addEventListener("click", startGame);
+document.getElementById("settingsBtn").addEventListener("click", openSettings);
+document.getElementById("backBtn").addEventListener("click", backToTitle);

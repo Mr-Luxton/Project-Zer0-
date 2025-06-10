@@ -72,7 +72,7 @@ Without spoiling too much...
 
 - HTML, CSS, JavaScript (Vanilla)
 - Designed with tension in mind.
-- Developed in collaboration with humans & ChatGPT.
+- Have fun 
 
 ---
 
